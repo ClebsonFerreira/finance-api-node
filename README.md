@@ -1,4 +1,5 @@
 # Projeto de estudo 
 
+**CheckList**
 
-projeto para exemplo portifolio
+[] - modelagem de banco de dados 
