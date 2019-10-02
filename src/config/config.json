@@ -4,7 +4,8 @@
     "password": null,
     "database": "finance",
     "host": "127.0.0.1",
-    "dialect": "mysql",
+    "dialect": "sqlite",
+    "storage": "database.sqlite",
     "operatorsAliases": false
   },
   "test": {
