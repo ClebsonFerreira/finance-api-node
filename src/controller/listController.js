@@ -12,6 +12,27 @@ exports.index = (req, res) => {
     });
 };
 
+exports.getId = (req, res) => {
+    const { id } = req.params;
+    Titulo.findAll({
+        where: {
+            id: id
+        }
+    }).then((titulo) => {
+        if (titulo.length != 0) {
+            code = 200;
+            message = 'OK';
+            res.json({
+                code: code,
+                message: message,
+                data: titulo
+            });
+        } else {
+            res.status(400).send('id não encontrado');
+        }
+    });
+};
+
 exports.create = function (req, res) {
     Titulo.create({
         name: req.body.name,
@@ -62,9 +83,9 @@ exports.delete = function (req, res) {
     const id = req.params.id;
     Titulo.destroy({
         where: {
-            id: id 
+            id: id
         }
-    }).then((rowDeleted)=>{
+    }).then((rowDeleted) => {
         if (rowDeleted === 1) {
             code = 200;
             message = 'deletado com sucesso';
@@ -73,9 +94,9 @@ exports.delete = function (req, res) {
                 message: message,
                 data: []
             });
-        }else{
+        } else {
             code = 400;
-            message = 'o titulo de id: '+id+' não foi encontrado';
+            message = 'o titulo de id: ' + id + ' não foi encontrado';
             res.json({
                 code: code,
                 message: message,
